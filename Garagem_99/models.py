@@ -20,19 +20,25 @@ class Acessório(models.Model):
     def __str__(self):
         return self.descricao
 
-class Core(models.Model):
+class Cor(models.Model):
     descricao = models.CharField(max_length=100)
 
     def __str__(self):
         return self.descricao
     
+    class Meta:
+        verbose_name = "Cor"
+        verbose_name_plural = "Cores"
+    
 class Veículo(models.Model):
     ano = models.IntegerField(default=0, null=True)
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True)
-    cor = models.ForeignKey(Core, on_delete=models.CASCADE)
+    cor = models.ForeignKey(Cor, on_delete=models.CASCADE)
     modelo = models.ForeignKey(Marca, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.preco} ,{self.ano}, {self.cor}, {self.modelo}, {self.categoria}"
+    
+
     
