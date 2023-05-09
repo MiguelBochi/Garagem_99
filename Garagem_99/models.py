@@ -14,11 +14,14 @@ class Categoria(models.Model):
     def __str__(self):
         return self.descricao
     
-class Acessório(models.Model):
+class Acessorio(models.Model):
     descricao = models.CharField(max_length=100)
 
     def __str__(self):
         return self.descricao
+    class Meta:
+        verbose_name = "Acessório"
+        verbose_name_plural = "Acessórios"
 
 class Cor(models.Model):
     descricao = models.CharField(max_length=100)
@@ -30,7 +33,7 @@ class Cor(models.Model):
         verbose_name = "Cor"
         verbose_name_plural = "Cores"
     
-class Veículo(models.Model):
+class Veiculo(models.Model):
     ano = models.IntegerField(default=0, null=True)
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True)
     cor = models.ForeignKey(Cor, on_delete=models.CASCADE)
@@ -39,6 +42,9 @@ class Veículo(models.Model):
 
     def __str__(self):
         return f"{self.preco} ,{self.ano}, {self.cor}, {self.modelo}, {self.categoria}"
+    class Meta:
+        verbose_name = "Veículo"
+        verbose_name_plural = "Veículos"
     
 
     
