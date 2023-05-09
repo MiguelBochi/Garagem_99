@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Marca, Categoria, Veiculo, Cor, Acessorio
+from .models import Acessorio, Categoria, Cor, Marca, Veiculo
 
 admin.site.register(Categoria)
 admin.site.register(Marca)
