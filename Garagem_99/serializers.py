@@ -33,7 +33,7 @@ class VeiculoSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class VeiculoListSerializer(ModelSerializer):
+class VeiculoDetailSerializer(ModelSerializer):
     class Meta:
         model = Veiculo
         fields = [
@@ -45,7 +45,7 @@ class VeiculoListSerializer(ModelSerializer):
         ]
 
 
-class VeiculoDetailSerializer(ModelSerializer):
+class VeiculoListSerializer(ModelSerializer):
     class Meta:
         model = Veiculo
         fields = ["id", "preco"]
