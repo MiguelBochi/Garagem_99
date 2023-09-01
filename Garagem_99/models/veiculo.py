@@ -7,19 +7,15 @@ class Veiculo(models.Model):
     ano = models.IntegerField(default=0, null=True)
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True)
     cor = models.ForeignKey(Cor, on_delete=models.CASCADE)
-    cessorio = models.ForeignKey(Acessorio, on_delete=models.CASCADE)
+    acessorio = models.ForeignKey(Acessorio, on_delete=models.CASCADE)
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
-    capa = models.ForeignKey(
+    capa = models.ManyToManyField(
         Image,
         related_name="+",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        default=None,
     )
 
     def __str__(self):
-        return f"{self.preco} ,{self.ano}, {self.cor}, {self.modelo}, {self.categoria}"
+        return f"{self.preco} ,{self.ano}, {self.cor}, {self.modelo}"
 
     class Meta:
         verbose_name = "Veículo"
