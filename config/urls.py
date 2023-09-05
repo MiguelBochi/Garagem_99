@@ -21,11 +21,11 @@ from drf_spectacular.views import (
 )
 
 router = DefaultRouter()
-router.register("Acessorios", AcessorioViewSet)
-router.register("Categorias", CategoriaViewSet)
-router.register("Cores", CorViewSet)
-router.register("Marcas", MarcaViewSet)
-router.register("Veiculos", VeiculoViewSet)
+router.register("acessorios", AcessorioViewSet)
+router.register("categorias", CategoriaViewSet)
+router.register("cores", CorViewSet)
+router.register("marcas", MarcaViewSet)
+router.register("veiculos", VeiculoViewSet)
 
 
 urlpatterns = [

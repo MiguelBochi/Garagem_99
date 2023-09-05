@@ -5,9 +5,10 @@ from uploader.models import Image
 
 class Veiculo(models.Model):
     ano = models.IntegerField(default=0, null=True)
+    descricao = models.CharField(max_length=50)
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True)
     cor = models.ForeignKey(Cor, on_delete=models.CASCADE)
-    acessorio = models.ForeignKey(Acessorio, on_delete=models.CASCADE)
+    acessorio = models.ManyToManyField(Acessorio, related_name="+",)
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
     capa = models.ManyToManyField(
         Image,
@@ -15,7 +16,7 @@ class Veiculo(models.Model):
     )
 
     def __str__(self):
-        return f"{self.preco} ,{self.ano}, {self.cor}, {self.modelo}"
+        return f"{self.modelo} {self.cor} {self.ano} {self.preco}"
 
     class Meta:
         verbose_name = "Veículo"

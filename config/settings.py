@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'uploader',
     "drf_spectacular",
     "Garagem_99",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
